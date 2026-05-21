@@ -16,7 +16,8 @@
     <div id="sidebar">
         <h2>📍 카페 찾기</h2>
         <div class="tab-menu">
-            <button onclick="searchPlaces('메가커피')">메가커피</button>
+            <!-- 버튼 이름을 확실히 '메가커피'로 바꿨습니다! -->
+            <button onclick="searchPlaces('메가커피')">메가커피</button> 
             <button onclick="searchPlaces('애견동반카페')">반려동물</button>
         </div>
         <ul id="placesList">버튼을 눌러보세요!</ul>
@@ -30,7 +31,6 @@
         const ps = new kakao.maps.services.Places();
         let markers = [];
 
-        // 현재 위치 표시
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(pos => {
                 const myPos = new kakao.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
@@ -60,7 +60,7 @@
 
                 const itemEl = document.createElement('li');
                 itemEl.innerHTML = `<strong>${place.place_name}</strong><br><small>${place.address_name}</small>`;
-                itemEl.onclick = () => map.panTo(pos); // 클릭 시 해당 위치로 부드럽게 이동
+                itemEl.onclick = () => map.panTo(pos);
                 listEl.appendChild(itemEl);
             });
         }
